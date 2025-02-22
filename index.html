@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Dog and Cat Pictures</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #008CBA;
+            color: white;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #005f73;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="server-name">Loading server name...</h1>
+    <h2>Random Dog and Cat Pictures</h2>
+    <img id="animal" src="" alt="Random Animal Picture">
+    <button onclick="fetchDog()">Get Random Dog</button>
+    <button onclick="fetchCat()">Get Random Cat</button>
+    
+    <script>
+        document.getElementById('server-name').innerText = `Server: $REPLACE`;
+        
+        async function fetchDog() {
+            try {
+                const response = await fetch('https://dog.ceo/api/breeds/image/random');
+                const data = await response.json();
+                document.getElementById('animal').src = data.message;
+            } catch (error) {
+                console.error('Error fetching dog picture:', error);
+            }
+        }
+        
+        async function fetchCat() {
+            try {
+                const response = await fetch('https://api.thecatapi.com/v1/images/search');
+                const data = await response.json();
+                document.getElementById('animal').src = data[0].url;
+            } catch (error) {
+                console.error('Error fetching cat picture:', error);
+            }
+        }
+        
+        fetchDog(); // Load a random dog picture on page load
+    </script>
+</body>
+</html>
