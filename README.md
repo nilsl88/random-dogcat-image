@@ -2,10 +2,10 @@
 
 Build the image
 ```bash
-podman build -t lundberg88/random-dogcat:latest .
+podman build -t random-dogcat:latest .
 ```
 
-Run the image
+Run the public image form dockerhub 
 ```bash
-podman run -d --name random-dogcat -p 8080:80 lundberg88/random-dogcat:latest
+podman run -d --name random-dogcat -p 8080:80 docker.io/lundberg88/random-dogcat:latest
 ```
