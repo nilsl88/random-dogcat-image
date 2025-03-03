@@ -3,7 +3,6 @@ FROM caddy:latest
 # Copy website files
 COPY . /usr/share/caddy/
 
-
 # Copy and set the entrypoint script
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
