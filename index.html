@@ -38,8 +38,10 @@
     <h1 id="server-name">Loading server name...</h1>
     <h2>Random Dog and Cat Pictures</h2>
     <img id="animal" src="" alt="Random Animal Picture">
+    <button onclick="fetchRandomAnimal()">Get Random Dog or Cat</button>
     <button onclick="fetchDog()">Get Random Dog</button>
     <button onclick="fetchCat()">Get Random Cat</button>
+
     
     <script>
         document.getElementById('server-name').innerText = `Server: $REPLACE`;
@@ -61,6 +63,16 @@
                 document.getElementById('animal').src = data[0].url;
             } catch (error) {
                 console.error('Error fetching cat picture:', error);
+            }
+        }
+
+        async function fetchRandomAnimal() {
+            // 0 for dog, 1 for cat
+            const choice = Math.random() < 0.5 ? 'dog' : 'cat';
+            if (choice === 'dog') {
+                fetchDog();
+            } else {
+                fetchCat();
             }
         }
         
