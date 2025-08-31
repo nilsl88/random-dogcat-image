@@ -47,7 +47,7 @@ kubectl apply -f workload.yaml
 Check that the pod is running:
 
 ```bash
-kubectl get pods
+kubectl get pods -n dogcat
 ```
 
 Then, expose it (if not already exposed):
