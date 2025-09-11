@@ -20,12 +20,12 @@ spec:
     spec:
       containers:
       - name: random-dogcat
-        image: docker.io/lundberg88/random-dogcat:latest
+        image: docker.io/lundberg88/random-dogcat:latest # Change to you own image
         resources:
           requests:
-            memory: "30Mi"
+            memory: "20Mi"
           limits:
-            memory: "150Mi"
+            memory: "50Mi"
         ports:
         - containerPort: 80
 ---
