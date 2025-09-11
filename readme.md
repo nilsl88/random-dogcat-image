@@ -1,4 +1,4 @@
-# 🐶🐱 Random Dog & Cat Image Demo
+# 🐶🐱 Random dog & cat image demo
 
 A simple containerized demo website that serves random dog and cat images.  
 Perfect for testing container runtimes, Kubernetes deployments, or just brightening your day with cute animals!
