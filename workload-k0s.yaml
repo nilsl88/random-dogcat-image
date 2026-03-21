@@ -37,7 +37,7 @@ spec:
 
         # Container-level security context
         securityContext:
-          allowPrivilegeEscalation: false
+          allowPrivilegeEscalation: true
           readOnlyRootFilesystem: true
           capabilities:
             drop:
