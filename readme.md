@@ -28,7 +28,13 @@ podman build -t random-dogcat:latest .
 Run the pre-built public image from Docker Hub:
 
 ```bash
-podman run -d --user 10001:10001 --name random-dogcat -p 8080:8080 docker.io/lundberg88/random-dogcat:latest
+podman run -d \
+  --user 10001:10001 \
+  --name random-dogcat \
+  -p 8080:8080 \
+  --read-only \
+  --tmpfs /tmp:rw,size=8m \
+  docker.io/lundberg88/random-dogcat:latest
 ```
 
 The website will now be available at:
@@ -53,7 +59,7 @@ kubectl get pods -n dogcat
 Then, expose it (if not already exposed):
 
 ```bash
-kubectl port-forward svc/random-dogcat 8080:80
+kubectl port-forward svc/random-dogcat 8080:8080
 ```
 
 Access the site at:

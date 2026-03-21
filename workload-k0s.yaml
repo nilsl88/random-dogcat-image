@@ -18,13 +18,14 @@ spec:
       labels:
         app: random-dogcat
     spec:
-      # ✅ Pod-level security context
+      # Pod-level security context
       securityContext:
         runAsNonRoot: true
         runAsUser: 10001
         runAsGroup: 10001
         seccompProfile:
           type: RuntimeDefault
+
       containers:
       - name: random-dogcat
         image: docker.io/lundberg88/random-dogcat:latest
@@ -33,12 +34,29 @@ spec:
             memory: "20Mi"
           limits:
             memory: "50Mi"
-        # ✅ Container-level security context
+
+        # Container-level security context
         securityContext:
           allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - ALL
 
         ports:
         - containerPort: 8080
+
+        # Mount the memory-backed tmp volume at /tmp
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+
+      # Define the tmp volume at the Pod level
+      volumes:
+      - name: tmp
+        emptyDir:
+          medium: Memory
+          sizeLimit: 8Mi
 ---
 apiVersion: v1
 kind: Service
