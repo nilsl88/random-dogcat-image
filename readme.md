@@ -59,7 +59,7 @@ kubectl get pods -n dogcat
 Then, expose it (if not already exposed):
 
 ```bash
-kubectl port-forward svc/random-dogcat 8080:8080
+kubectl port-forward -n dogcat svc/random-dogcat-service 8080:80
 ```
 
 Access the site at:
