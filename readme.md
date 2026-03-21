@@ -28,7 +28,7 @@ podman build -t random-dogcat:latest .
 Run the pre-built public image from Docker Hub:
 
 ```bash
-podman run -d --user 10001:10001 --name random-dogcat -p 8080:80 docker.io/lundberg88/random-dogcat:latest
+podman run -d --user 10001:10001 --name random-dogcat -p 8080:8080 docker.io/lundberg88/random-dogcat:latest
 ```
 
 The website will now be available at:
