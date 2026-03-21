@@ -18,14 +18,25 @@ spec:
       labels:
         app: random-dogcat
     spec:
+      # ✅ Pod-level security context
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: random-dogcat
-        image: docker.io/lundberg88/random-dogcat:latest # Change to you own image
+        image: docker.io/lundberg88/random-dogcat:latest
         resources:
           requests:
             memory: "20Mi"
           limits:
             memory: "50Mi"
+        # ✅ Container-level security context
+        securityContext:
+          allowPrivilegeEscalation: false
+
         ports:
         - containerPort: 80
 ---
