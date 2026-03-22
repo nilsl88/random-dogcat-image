@@ -8,7 +8,7 @@ Perfect for testing container runtimes, Kubernetes deployments, or just brighten
 ## 🚀 Features
 - Displays random dog and cat images
 - Packaged as a container image (Podman / Docker compatible)
-- Ready-to-use Kubernetes deployment manifest (`workload.yaml`)
+- Ready-to-use Kubernetes deployment manifest (`workload-k0s.yaml`)
 - Lightweight and fun demo workload
 
 ---
