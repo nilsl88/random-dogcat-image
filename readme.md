@@ -21,6 +21,21 @@ If you want to build the image locally:
 podman build -t random-dogcat:latest .
 ````
 
+If you want to build the image locally for multiple cpu architecture:
+
+```bash
+export IMAGE=random-dogcat:latest
+podman build \
+  --platform linux/amd64,linux/arm64 \
+  --manifest $IMAGE \
+  .
+````
+
+If you wish to push the images to a oci registry fx dockerhub:
+
+```bash
+podman manifest push --all $IMAGE docker://$IMAGE
+````
 ---
 
 ## ▶️ Run the Container
