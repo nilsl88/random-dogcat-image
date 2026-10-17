@@ -2,7 +2,7 @@
 set -eu
 
 # Get the name of the container
-HOSTNAME=$(hostname)
+IFS= read -r HOSTNAME < /proc/sys/kernel/hostname
 
 # Create writable runtime directories
 mkdir -p /tmp/caddy-site /tmp/config /tmp/data
