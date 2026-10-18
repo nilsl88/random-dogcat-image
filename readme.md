@@ -70,7 +70,7 @@ CONTAINER_ENGINE=podman scripts/smoke-test.sh random-dogcat:latest
 For k0s with an nginx ingress controller:
 
 ```bash
-kubectl apply -f workload-k0s.yaml
+kubectl apply -f workload-k3s.yaml
 kubectl get pods -n dogcat
 ```
 
