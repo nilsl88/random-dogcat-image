@@ -74,7 +74,7 @@ kubectl apply -f workload-k3s.yaml
 kubectl get pods -n dogcat
 ```
 
-For k3s with Traefik, apply `workload-k3s.yaml` instead. Both manifests configure the same workload in the `dogcat` namespace, including UID/GID `10001:10001`, a read-only root filesystem, dropped capabilities, and an 8 MiB memory-backed `/tmp` volume.
+For k0s with nginx ingress, apply `workload-k0s.yaml` instead. Both manifests configure the same workload in the `dogcat` namespace, including UID/GID `10001:10001`, a read-only root filesystem, dropped capabilities, and an 8 MiB memory-backed `/tmp` volume.
 
 To access the service directly:
 
