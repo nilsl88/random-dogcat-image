@@ -36,7 +36,7 @@ To publish the manifest, authenticate to a registry account with write access an
 ```bash
 podman manifest push --all \
   random-dogcat:multi \
-  docker://docker.io/lundberg88/random-dogcat:latest
+  docker://docker.io/<DOCKERHUB_USER>/random-dogcat:latest
 ```
 
 ## ▶️ Run locally
